@@ -145,6 +145,13 @@ local function set_groups()
     ['@lsp.type.decorator'] = { link = '@function' },
     ['@lsp.mod.constant'] = { link = '@constant' },
 
+    -- Golang overrides
+    ['@punctuation.delimiter.go'] = { link = '@variable' },
+    ['@punctuation.bracket.go'] = { link = '@variable' },
+    ['@lsp.type.function.go'] = { link = '@variable' },
+    ['@lsp.type.namespace.go'] = { fg = colors.markup },
+    ['@lsp.mod.readonly.go'] = { link = '@constant' },
+
     -- TreesitterContext.
     TreesitterContext = { bg = colors.selection_inactive },
 
@@ -279,6 +286,21 @@ local function set_groups()
     VM_Cursor = { bg = colors.selection_inactive, sp = colors.fg, underline = true },
     VM_Insert = { sp = colors.fg, underline = true },
     VM_Mono = { fg = colors.bg, bg = colors.comment },
+
+    -- Dashboard
+    DashboardHeader = { fg = colors.constant },
+    DashboardFooter = { fg = colors.fg },
+    DashboardDesc = { fg = colors.tag },
+    DashboardKey = { fg = colors.keyword, bold = true },
+    DashboardIcon = { fg = colors.special },
+    DashboardShortCut = { fg = colors.markup },
+
+    -- Flash
+    --FlashBackdrop = { fg = colors.bg },
+    FlashLabel = { bg = colors.tag, bold = true, fg = colors.bg },
+
+    -- mini.indentscope.
+    MiniIndentscopeSymbol = { fg = colors.comment },
   }
 
   groups = vim.tbl_extend('force', groups, type(config.overrides) == 'function' and config.overrides() or config.overrides)
@@ -308,7 +330,7 @@ function ayu.colorscheme()
   vim.o.termguicolors = true
   vim.g.colors_name = 'ayu'
 
-  colors.generate(config.mirage)
+  colors.generate(config.mirage, config.extra)
   set_terminal_colors()
   set_groups()
 end

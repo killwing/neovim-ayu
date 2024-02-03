@@ -5,7 +5,8 @@ local colors = {
 
 --- Generate colors based `vim.o.background` and a variant.
 ---@param mirage boolean: Wheter to use `mirage` variant when `vim.o.background` is dark.
-function colors.generate(mirage)
+---@param extra boolean: Wheter to use `extra` variant when `vim.o.background` is dark.
+function colors.generate(mirage, extra)
   if vim.o.background == 'dark' then
     if mirage then
       colors.accent = '#FFCC66'
@@ -26,6 +27,49 @@ function colors.generate(mirage)
       colors.operator = '#F29E74'
       colors.error = '#FF3333'
       colors.lsp_parameter = '#D3B8F9'
+
+      colors.line = '#191E2A'
+      colors.panel_bg = '#232834'
+      colors.panel_shadow = '#141925'
+      colors.panel_border = '#101521'
+      colors.gutter_normal = '#404755'
+      colors.gutter_active = '#5F687A'
+      colors.selection_bg = '#33415E'
+      colors.selection_inactive = '#323A4C'
+      colors.selection_border = '#232A4C'
+      colors.guide_active = '#576070'
+      colors.guide_normal = '#383E4C'
+
+      colors.vcs_added = '#A6CC70'
+      colors.vcs_modified = '#77A8D9'
+      colors.vcs_removed = '#F27983'
+
+      colors.vcs_added_bg = '#313D37'
+      colors.vcs_removed_bg = '#3E373A'
+
+      colors.fg_idle = '#607080'
+      colors.warning = '#FFA759'
+    elseif extra then
+      -- mirage + dracula extra
+      -- https://github.com/kraftwer1/vscode-theme-darcula-extra/blob/master/themes/Darcula%20Extra-color-theme.json
+      colors.accent = '#ffc66d' -- yellow
+      colors.bg = '#282828' -- black
+      colors.fg = '#a9b7c6' -- white
+      colors.ui = '#707A8C'
+
+      colors.tag = '#5d98bf' -- blue
+      colors.func = '#ffc66d' -- yellow
+      colors.entity = '#5d98bf' -- blue
+      colors.string = '#638954' -- green
+      colors.regexp = '#a5c261' -- neon
+      colors.markup = '#9f73ae' -- violet
+      colors.keyword = '#cc7832' -- orange
+      colors.special = '#ffc66d' -- yellow
+      colors.comment = '#808080' -- gray
+      colors.constant = '#a5c261' -- neon
+      colors.operator = '#F29E74'
+      colors.error = '#FF3333'
+      colors.lsp_parameter = '#CBCCC6' -- mirage.fg
 
       colors.line = '#191E2A'
       colors.panel_bg = '#232834'
