@@ -42,6 +42,7 @@ local function set_groups()
     Directory = { fg = colors.func },
     ErrorMsg = { fg = colors.error },
     VertSplit = { fg = colors.panel_border, bg = colors.bg },
+    WinSeparator = { fg = colors.panel_border, bg = colors.bg },
     Folded = { fg = colors.fg_idle, bg = colors.panel_bg },
     FoldColumn = { bg = colors.bg },
     SignColumn = { bg = colors.bg },
